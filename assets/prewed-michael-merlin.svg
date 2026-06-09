@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Michael Vinci and Merlin prewedding illustration</title>
+  <desc id="desc">A romantic Chinese-inspired prewedding portrait illustration in maroon and gold.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="34%" r="62%">
+      <stop offset="0" stop-color="#fff3cf"/>
+      <stop offset=".42" stop-color="#cf9b4a"/>
+      <stop offset="1" stop-color="#5a0612"/>
+    </radialGradient>
+    <linearGradient id="silk" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#42030b"/>
+      <stop offset=".5" stop-color="#9d1727"/>
+      <stop offset="1" stop-color="#2b0308"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#f8dea0"/>
+      <stop offset=".48" stop-color="#d7a84f"/>
+      <stop offset="1" stop-color="#9f6b24"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="26" flood-color="#240207" flood-opacity=".42"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1500" fill="#3c030b"/>
+  <rect width="1200" height="1500" fill="url(#glow)" opacity=".9"/>
+  <g opacity=".22" stroke="#f4d58a" stroke-width="2">
+    <path d="M80 180h1040M80 1320h1040M160 80v1340M1040 80v1340"/>
+    <path d="M230 90c220 180 520 180 740 0M230 1410c220-180 520-180 740 0"/>
+  </g>
+  <g transform="translate(600 730)" filter="url(#softShadow)">
+    <circle r="360" fill="#fff6df" opacity=".28"/>
+    <circle r="316" fill="none" stroke="url(#gold)" stroke-width="24"/>
+    <circle r="270" fill="none" stroke="#f4d58a" stroke-width="4" opacity=".7"/>
+  </g>
+  <g transform="translate(0 24)">
+    <path d="M360 1058c-50-162 6-312 118-382 56-35 146-35 202-1 118 72 170 224 121 383H360z" fill="url(#silk)"/>
+    <path d="M475 623c-42-72-10-161 68-184 78-23 158 32 164 113 12 102-70 179-164 162-30-6-52-26-68-91z" fill="#2a0b0d"/>
+    <path d="M494 612c22 72 94 108 156 75 65-34 82-119 35-174-20 75-92 104-191 99z" fill="#f1cda4"/>
+    <path d="M420 1060c10-152 48-278 112-380 26 42 66 64 119 65 55 0 100-22 130-65 58 106 92 232 100 380H420z" fill="#fff7ec"/>
+    <path d="M450 1060c40-95 88-175 143-240 44 64 94 144 150 240H450z" fill="url(#gold)" opacity=".9"/>
+    <path d="M520 740c42 22 88 22 136 0" fill="none" stroke="#d8a24b" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(128 42)">
+    <path d="M407 1070c-33-176 35-317 134-382 56-37 130-36 189-1 104 62 171 206 134 383H407z" fill="#1f0508"/>
+    <path d="M562 600c-22-84 28-159 110-166 81-7 146 59 142 139-1 88-68 153-153 150-48-2-82-39-99-123z" fill="#210809"/>
+    <path d="M590 608c30 69 105 92 159 50 50-39 54-119 9-166-6 74-70 116-168 116z" fill="#edc6a2"/>
+    <path d="M448 1070c26-154 80-287 162-399 28 42 67 62 117 62 52 0 95-22 129-65 73 115 112 249 116 402H448z" fill="#9d1727"/>
+    <path d="M526 1070c42-138 98-241 167-311 63 81 113 184 150 311H526z" fill="#fff8ee"/>
+    <path d="M598 742c42 24 87 24 137 0" fill="none" stroke="#d8a24b" stroke-width="8" stroke-linecap="round"/>
+  </g>
+  <g fill="#f5d98f" opacity=".9">
+    <path d="M210 330c36-66 92-66 128 0-36 66-92 66-128 0z"/>
+    <path d="M848 324c36-66 92-66 128 0-36 66-92 66-128 0z"/>
+    <path d="M280 1182c28-50 70-50 98 0-28 50-70 50-98 0z"/>
+    <path d="M820 1180c28-50 70-50 98 0-28 50-70 50-98 0z"/>
+  </g>
+  <text x="600" y="1285" text-anchor="middle" font-family="Georgia, serif" font-size="74" font-weight="700" fill="#fff0c5">Michael Vinci &amp; Merlin</text>
+  <text x="600" y="1370" text-anchor="middle" font-family="serif" font-size="92" font-weight="700" fill="#f2cd78">囍</text>
+</svg>

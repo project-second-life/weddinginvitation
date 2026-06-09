@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation — Michael Vinci &amp; Merlin</title>
+  <meta name="description" content="You are cordially invited to the wedding celebration of Michael Vinci and Merlin. An elegant Chinese-inspired ceremony of love and tradition.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Phosphor Icons (free icon library) -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/style.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient Layers -->
+  <canvas id="golden-particles" aria-hidden="true"></canvas>
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="floating-romance" aria-hidden="true"></div>
+
+  <!-- Music FAB -->
+  <button class="music-fab" type="button" aria-label="Toggle background music" aria-pressed="false">
+    <span class="music-fab__icon"><i class="ph-fill ph-music-note"></i></span>
+    <span class="music-fab__label">Music</span>
+  </button>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       OPENING GATE
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="gate" aria-labelledby="gate-title">
+    <!-- Phoenix background image, centered behind all content -->
+    <img class="gate__phoenix-bg" src="assets/phoenix-gate.png" alt="" aria-hidden="true">
+
+    <!-- Left Phoenix Door with Left Lantern -->
+    <div class="gate__door gate__door--left" aria-hidden="true">
+      <img class="gate__door-phoenix" src="assets/phoenix-gate.png" alt="" aria-hidden="true">
+      <div class="gate__lantern gate__lantern--left" aria-hidden="true">
+        <img src="assets/lantern.png" alt="" class="gate__lantern-img">
+      </div>
+    </div>
+    <!-- Right Phoenix Door with Right Lantern -->
+    <div class="gate__door gate__door--right" aria-hidden="true">
+      <img class="gate__door-phoenix" src="assets/phoenix-gate.png" alt="" aria-hidden="true">
+      <div class="gate__lantern gate__lantern--right" aria-hidden="true">
+        <img src="assets/lantern.png" alt="" class="gate__lantern-img">
+      </div>
+    </div>
+
+    <!-- Gate Content Wrapper -->
+    <div class="gate__content">
+      <p class="gate__overline gold-shimmer">The Wedding of</p>
+      <h2 id="gate-title" class="gate__title">Michael Vinci<span class="gate__amp">&</span>Merlin</h2>
+      <p class="gate__mandarin">永结同心 · 百年好合</p>
+      <div class="gate__guest-badge">
+        <span>Dear · 亲爱的</span>
+        <strong id="cover-guest-name">Honored Guest</strong>
+      </div>
+      <button class="btn btn--gold open-invitation" type="button">
+        <i class="ph-fill ph-envelope-open"></i>
+        <span>Open Invitation</span>
+        <span class="btn__cn">打开邀请</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════════════════════════ -->
+  <header class="hero" id="home">
+    <!-- Hero Background Image -->
+    <div class="hero__bg" aria-hidden="true"></div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#home" class="nav__brand" aria-label="Home">囍</a>
+      <div class="nav__links">
+        <a href="#couple"><i class="ph ph-heart"></i> Couple</a>
+        <a href="#event"><i class="ph ph-calendar-blank"></i> Event</a>
+        <a href="#rsvp"><i class="ph ph-paper-plane-tilt"></i> RSVP</a>
+      </div>
+    </nav>
+
+    <div class="lantern lantern--left" aria-hidden="true">
+      <div class="lantern__string"></div>
+      <img class="lantern__img" src="assets/lantern.png" alt="">
+    </div>
+    <div class="lantern lantern--right" aria-hidden="true">
+      <div class="lantern__string"></div>
+      <img class="lantern__img" src="assets/lantern.png" alt="">
+    </div>
+
+    <div class="cloud cloud--1" aria-hidden="true"></div>
+    <div class="cloud cloud--2" aria-hidden="true"></div>
+
+    <section class="hero__content" aria-labelledby="hero-title">
+      <p class="overline gold-shimmer">Wedding Invitation · 婚礼邀请</p>
+      <h1 id="hero-title" class="hero__title">
+        <span class="hero__name">Michael Vinci</span>
+        <span class="hero__and" aria-hidden="true">&</span>
+        <span class="hero__name">Merlin</span>
+      </h1>
+      <p class="hero__hanzi" aria-hidden="true">百年好合</p>
+      <div class="guest-card">
+        <span>Dear · 亲爱的</span>
+        <strong id="guest-name">Honored Guest</strong>
+      </div>
+      <p class="hero__copy">
+        With joyful hearts, together with our families, we invite you to celebrate
+        our wedding day and share your blessing with us.
+      </p>
+      <p class="hero__copy hero__copy--cn">
+        我们怀着喜悦的心，诚挚邀请您与我们的家人一同见证并祝福我们的婚礼。
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--gold" href="#event"><i class="ph-fill ph-calendar-heart"></i> View Event · 查看婚礼</a>
+        <a class="btn btn--outline" href="#rsvp"><i class="ph ph-heart"></i> Send Wishes · 送上祝福</a>
+      </div>
+    </section>
+
+    <a class="scroll-cue" href="#couple" aria-label="Scroll down">
+      <span></span>
+    </a>
+
+    <div class="date-ribbon" aria-label="Wedding date: July 5, 2026">
+      <span><i class="ph ph-sun"></i> Sunday · 星期日</span>
+      <strong>05 · 07 · 2026</strong>
+      <span><i class="ph ph-map-pin"></i> Jakarta · 雅加达</span>
+    </div>
+  </header>
+
+  <!-- Decorative SVG Divider -->
+  <div class="section-divider" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 30 C180 60 360 0 540 30 S900 60 1080 30 S1350 0 1440 30 L1440 60 L0 60 Z" fill="rgba(212,168,67,0.06)"/>
+      <path d="M0 40 C240 10 480 55 720 40 S1200 10 1440 40" stroke="rgba(212,168,67,0.18)" stroke-width="1" fill="none" stroke-dasharray="8 5"/>
+    </svg>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       MAIN CONTENT
+       ════════════════════════════════════════════════════════════════ -->
+  <main>
+    <!-- Couple Section -->
+    <section class="section section--couple" id="couple">
+      <div class="section__header">
+        <p class="overline gold-shimmer"><i class="ph ph-heart"></i> The Couple · 新人</p>
+        <h2>Two hearts, one blessed beginning</h2>
+        <p class="cn-sub">两颗心，一个被祝福的新开始</p>
+      </div>
+      <div class="couple-grid">
+        <article class="profile-card">
+          <!-- Card Decorative Lanterns -->
+          <img class="card-lantern card-lantern--left" src="assets/lantern.png" alt="" aria-hidden="true">
+          <img class="card-lantern card-lantern--right" src="assets/lantern.png" alt="" aria-hidden="true">
+          <div class="portrait portrait--bride">
+            <img src="assets/bride-portrait.png" alt="Bride Merlin portrait in traditional Chinese wedding gown" loading="lazy">
+          </div>
+          <h3>Merlin</h3>
+          <p class="profile-card__role"><i class="ph-fill ph-flower-lotus"></i> Bride · 新娘</p>
+          <div class="profile-card__line" aria-hidden="true"></div>
+          <p class="profile-card__desc">A soul of grace and warmth, beloved by all who know her.</p>
+        </article>
+
+        <div class="xi-emblem" aria-hidden="true">
+          <div class="xi-emblem__inner">
+            <span>囍</span>
+          </div>
+        </div>
+
+        <article class="profile-card">
+          <!-- Card Decorative Lanterns -->
+          <img class="card-lantern card-lantern--left" src="assets/lantern.png" alt="" aria-hidden="true">
+          <img class="card-lantern card-lantern--right" src="assets/lantern.png" alt="" aria-hidden="true">
+          <div class="portrait portrait--groom">
+            <img src="assets/groom-portrait.png" alt="Groom Michael Vinci portrait in traditional Chinese wedding robe" loading="lazy">
+          </div>
+          <h3>Michael Vinci</h3>
+          <p class="profile-card__role"><i class="ph-fill ph-crown-simple"></i> Groom · 新郎</p>
+          <div class="profile-card__line" aria-hidden="true"></div>
+          <p class="profile-card__desc">A man of strength and devotion, faithful in love and life.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Decorative SVG Divider -->
+    <div class="section-divider section-divider--flip" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 30 C180 60 360 0 540 30 S900 60 1080 30 S1350 0 1440 30 L1440 60 L0 60 Z" fill="rgba(232,93,58,0.04)"/>
+        <path d="M0 40 C240 10 480 55 720 40 S1200 10 1440 40" stroke="rgba(232,93,58,0.15)" stroke-width="1" fill="none" stroke-dasharray="8 5"/>
+      </svg>
+    </div>
+
+    <!-- Prewedding Section -->
+    <section class="section section--prewed" id="prewed">
+      <div class="prewed-layout">
+        <div class="prewed-copy">
+          <p class="overline gold-shimmer"><i class="ph ph-camera"></i> Prewedding Portrait · 婚纱照</p>
+          <h2>Wrapped in red silk, blessed in gold</h2>
+          <p>
+            A romantic keepsake capturing the beginning of Michael Vinci and Merlin's
+            wedding celebration — two souls becoming one.
+          </p>
+          <p class="cn-sub">红绸相伴，金色祝福，记录我们幸福旅程的开始。</p>
+          <div class="prewed-stats">
+            <div class="prewed-stat">
+              <i class="ph-fill ph-calendar-heart"></i>
+              <span>05 July 2026</span>
+            </div>
+            <div class="prewed-stat">
+              <i class="ph-fill ph-map-pin"></i>
+              <span>Jakarta, Indonesia</span>
+            </div>
+            <div class="prewed-stat">
+              <i class="ph-fill ph-heart"></i>
+              <span>Forever Together</span>
+            </div>
+          </div>
+        </div>
+        <figure class="prewed-frame">
+          <img src="assets/prewed-michael-merlin.png" alt="Romantic prewedding portrait of Michael Vinci and Merlin in luxury red and gold traditional Chinese robes" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="section section--countdown" aria-labelledby="countdown-title">
+      <div class="countdown-inner">
+        <div>
+          <p class="overline gold-shimmer"><i class="ph ph-hourglass-medium"></i> Save The Date · 敬请留日</p>
+          <h2 id="countdown-title">Counting down to our forever</h2>
+          <p class="cn-sub">倒数我们的幸福时刻</p>
+        </div>
+        <div class="countdown" data-date="2026-07-05T09:00:00+07:00" aria-live="polite">
+          <div class="countdown__cell">
+            <strong id="days">00</strong>
+            <span>Days · 天</span>
+          </div>
+          <div class="countdown__cell">
+            <strong id="hours">00</strong>
+            <span>Hours · 小时</span>
+          </div>
+          <div class="countdown__cell">
+            <strong id="minutes">00</strong>
+            <span>Minutes · 分</span>
+          </div>
+          <div class="countdown__cell">
+            <strong id="seconds">00</strong>
+            <span>Seconds · 秒</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Decorative SVG Divider -->
+    <div class="section-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 30 C180 60 360 0 540 30 S900 60 1080 30 S1350 0 1440 30 L1440 60 L0 60 Z" fill="rgba(212,168,67,0.06)"/>
+        <path d="M0 20 C360 50 720 0 1080 20 S1320 50 1440 20" stroke="rgba(212,168,67,0.12)" stroke-width="1.5" fill="none"/>
+      </svg>
+    </div>
+
+    <!-- Event Section -->
+    <section class="section section--event" id="event">
+      <div class="section__header">
+        <p class="overline gold-shimmer"><i class="ph ph-calendar-blank"></i> Wedding Day · 婚礼当天</p>
+        <h2>Event Details</h2>
+        <p class="cn-sub">婚礼详情</p>
+      </div>
+      <div class="event-grid">
+        <article class="event-card">
+          <!-- Card Decorative Lanterns -->
+          <img class="card-lantern card-lantern--left" src="assets/lantern.png" alt="" aria-hidden="true">
+          <img class="card-lantern card-lantern--right" src="assets/lantern.png" alt="" aria-hidden="true">
+          <figure class="event-card__image">
+            <img src="assets/venue-blessing.png" alt="Blessing ceremony venue at Vihara Ratana Graha" loading="lazy">
+            <div class="event-card__image-overlay"></div>
+          </figure>
+          <div class="event-card__body">
+            <div class="event-card__icon" aria-hidden="true"><i class="ph-fill ph-hands-praying"></i></div>
+            <h3>Blessing Ceremony</h3>
+            <p class="cn-sub">证婚仪式</p>
+            <p class="event-card__time"><i class="ph-fill ph-clock"></i> 09.00 AM WIB</p>
+            <p><i class="ph ph-map-pin"></i> Vihara Ratana Graha, West Jakarta</p>
+            <span class="event-card__tag">Sacred Ceremony · 神圣仪式</span>
+          </div>
+        </article>
+        <article class="event-card">
+          <!-- Card Decorative Lanterns -->
+          <img class="card-lantern card-lantern--left" src="assets/lantern.png" alt="" aria-hidden="true">
+          <img class="card-lantern card-lantern--right" src="assets/lantern.png" alt="" aria-hidden="true">
+          <figure class="event-card__image">
+            <img src="assets/venue-reception.png" alt="Wedding reception hall at Royal Jade Restaurant" loading="lazy">
+            <div class="event-card__image-overlay"></div>
+          </figure>
+          <div class="event-card__body">
+            <div class="event-card__icon" aria-hidden="true"><i class="ph-fill ph-champagne"></i></div>
+            <h3>Wedding Reception</h3>
+            <p class="cn-sub">婚礼晚宴</p>
+            <p class="event-card__time"><i class="ph-fill ph-clock"></i> 06.30 PM WIB</p>
+            <p><i class="ph ph-map-pin"></i> Royal Jade Restaurant, Seasons City Mall, West Jakarta</p>
+            <span class="event-card__tag">Dinner Reception · 婚宴</span>
+          </div>
+        </article>
+      </div>
+      <div class="map-links-container">
+        <a class="map-link gold-shimmer" href="https://maps.google.com/?q=Vihara%20Ratana%20Graha%20West%20Jakarta" target="_blank" rel="noreferrer">
+          <i class="ph ph-navigation-arrow"></i> Open Blessing Location · 打开证婚地点
+        </a>
+        <a class="map-link gold-shimmer" href="https://maps.google.com/?q=Royal+Jade+Restaurant+Seasons+City+Jakarta" target="_blank" rel="noreferrer">
+          <i class="ph ph-navigation-arrow"></i> Open Reception Location · 打开宴会地点
+        </a>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="section section--story">
+      <div class="story-layout">
+        <div class="story-visual">
+          <img src="assets/story-moongate.png" alt="Beautiful Chinese garden moon gate with lanterns and plum blossoms" loading="lazy" class="story-visual__img">
+        </div>
+        <div class="story-copy">
+          <p class="overline gold-shimmer"><i class="ph ph-sparkle"></i> Our Story · 我们的故事</p>
+          <h2>A promise made with love and family blessing</h2>
+          <p>
+            From a simple beginning to a shared dream, every step has brought us
+            closer to this beautiful day.
+          </p>
+          <p class="cn-sub">
+            从初次相遇到共同的梦想，每一步都引领我们走向这个美好的日子。
+          </p>
+          <div class="timeline">
+            <article class="timeline__item">
+              <span class="timeline__dot"><i class="ph-fill ph-hand-waving"></i></span>
+              <strong>First Hello</strong>
+              <p>A simple meeting became a warm beginning.</p>
+            </article>
+            <article class="timeline__item">
+              <span class="timeline__dot"><i class="ph-fill ph-leaf"></i></span>
+              <strong>Growing Together</strong>
+              <p>Every season taught us patience, trust, and tenderness.</p>
+            </article>
+            <article class="timeline__item">
+              <span class="timeline__dot"><i class="ph-fill ph-ring"></i></span>
+              <strong>Forever Promise</strong>
+              <p>With family blessings, we begin our new chapter.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blessing Quote Section -->
+    <section class="section section--blessing">
+      <blockquote>
+        <span class="blessing__icon" aria-hidden="true">鳳凰</span>
+        "May love, harmony, and prosperity bless this new journey."
+        <cite>愿爱、和谐与富足祝福我们的新旅程。</cite>
+      </blockquote>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="section section--rsvp" id="rsvp">
+      <div class="section__header">
+        <p class="overline gold-shimmer"><i class="ph ph-paper-plane-tilt"></i> RSVP · 回复邀请</p>
+        <h2>Confirm Attendance &amp; Send Wishes</h2>
+        <p class="cn-sub">确认出席并送上祝福</p>
+      </div>
+
+      <form class="rsvp-form">
+        <label>
+          <span><i class="ph ph-user"></i> Name · 姓名</span>
+          <input type="text" name="name" placeholder="Your full name" required>
+        </label>
+        <label>
+          <span><i class="ph ph-check-circle"></i> Attendance · 是否出席</span>
+          <select name="attendance" required>
+            <option value="">Choose your response</option>
+            <option value="Attending">Attending · 出席</option>
+            <option value="Not attending">Not attending · 无法出席</option>
+          </select>
+        </label>
+        <label>
+          <span><i class="ph ph-heart"></i> Wishes · 祝福留言</span>
+          <textarea name="message" rows="4" placeholder="Write your wishes for Michael Vinci &amp; Merlin" required></textarea>
+        </label>
+        <button class="btn btn--gold" type="submit">
+          <i class="ph-fill ph-paper-plane-tilt"></i>
+          <span>Save RSVP</span>
+          <span class="btn__cn">保存回复</span>
+        </button>
+        <p class="form-note" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="wishes-panel" aria-live="polite">
+        <div class="wishes-panel__header">
+          <h3><i class="ph-fill ph-heart"></i> Guest Wishes · 宾客祝福</h3>
+          <button class="clear-wishes" type="button"><i class="ph ph-trash"></i> Clear · 清除</button>
+        </div>
+        <div class="wishes-list" id="wishes-list">
+          <p class="empty-wishes">No wishes yet. Be the first to send one. · 还没有祝福留言。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <!-- Decorative SVG top wave -->
+    <div class="footer__wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0 40 C360 80 720 0 1080 40 S1320 80 1440 40 L1440 80 L0 80 Z" fill="rgba(212,168,67,0.05)"/>
+      </svg>
+    </div>
+    <div class="footer__ornament" aria-hidden="true">
+      <svg viewBox="0 0 240 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="0" y1="20" x2="90" y2="20" stroke="rgba(212,168,67,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+        <circle cx="120" cy="20" r="18" fill="none" stroke="rgba(212,168,67,0.35)" stroke-width="1"/>
+        <text x="120" y="26" text-anchor="middle" font-size="16" fill="#d4a843" font-family="Noto Serif SC,serif">囍</text>
+        <line x1="150" y1="20" x2="240" y2="20" stroke="rgba(212,168,67,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+      </svg>
+    </div>
+    <p class="footer__names">Michael Vinci &amp; Merlin</p>
+    <p class="footer__date"><i class="ph ph-calendar-heart"></i> 05 · 07 · 2026 · Jakarta</p>
+    <span class="footer__thanks">Thank you for your love, prayers, and blessings. · 感谢您的爱与祝福。</span>
+    <div class="footer__socials" aria-hidden="true">
+      <span><i class="ph-fill ph-heart"></i></span>
+      <span><i class="ph-fill ph-star"></i></span>
+      <span><i class="ph-fill ph-flower-lotus"></i></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
