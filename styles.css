@@ -1774,11 +1774,10 @@ h1, h2, h3 {
   .nav__links { flex-wrap: wrap; justify-content: flex-end; max-width: 220px; }
 
   .lantern { opacity: 0.8; }
-  .lantern--2, .lantern--3, .lantern--4, .lantern--5 { display: none; }
   .lantern--1 { left: 4px; width: clamp(36px, 10vw, 54px); }
   .lantern--1 .lantern__string { height: 18px; }
-  .lantern--6 { right: 4px; width: clamp(36px, 10vw, 54px); }
-  .lantern--6 .lantern__string { height: 18px; }
+  .lantern--2 { right: 4px; width: clamp(36px, 10vw, 54px); }
+  .lantern--2 .lantern__string { height: 18px; }
 
   .date-ribbon { grid-template-columns: 1fr; gap: 4px; }
 
