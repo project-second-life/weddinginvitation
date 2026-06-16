@@ -21,21 +21,24 @@ function buildInviteUrl(baseUrl, guestName) {
 }
 
 function buildMessage(guestName, inviteUrl) {
-  return `Kepada Yth.
-${guestName}
+  return `Dear ${guestName},
 
-Salam sejahtera bagi kita semua. Tuhan membuat segala sesuatu indah pada waktu-Nya dan mempersatukan kami dalam suatu ikatan pernikahan kudus, semoga Tuhan memberkati dalam mengiringi pernikahan kami.
+With hearts full of joy and gratitude, we are delighted to announce that we are beginning a new and blessed chapter of our lives together.
 
-Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i: untuk menghadiri acara kami.
+By the grace of God and the blessings of our beloved families, we joyfully invite you to celebrate our wedding:
 
-Berikut link undangan kami:
+✦ Michael Vinci & Merlin ✦
+
+Your presence would be the greatest gift and blessing to us on this beautiful occasion. May your journey to us be filled with ease, and may your attendance bring abundant joy, warmth, and good fortune to our celebration.
+
+To open your personal invitation, please visit the link below:
 
 ${inviteUrl}
 
-Merupakan suatu kebahagiaan bagi kami, apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.
+We humbly look forward to welcoming you with open arms and warm hearts. May this union bring happiness not only to us, but to all who gather in love and celebration.
 
-Terima kasih.
-Michael Vinci & Merlin`;
+With deepest gratitude and warmest wishes,
+Michael Vinci & Merlin 💍`;
 }
 
 async function copyText(value, fallbackElement) {
@@ -62,7 +65,7 @@ senderForm.addEventListener("submit", (event) => {
   senderUrl.value = inviteUrl;
   senderMessage.value = buildMessage(guestName, inviteUrl);
   previewLink.href = inviteUrl;
-  senderNote.textContent = "Pesan undangan berhasil dibuat.";
+  senderNote.textContent = "✓ Invitation message generated successfully.";
 });
 
 copyMessageButton.addEventListener("click", async () => {
@@ -70,9 +73,9 @@ copyMessageButton.addEventListener("click", async () => {
 
   try {
     await copyText(senderMessage.value, senderMessage);
-    senderNote.textContent = "Pesan undangan berhasil disalin.";
+    senderNote.textContent = "✓ Message copied to clipboard.";
   } catch {
-    senderNote.textContent = "Silakan salin pesan secara manual.";
+    senderNote.textContent = "Please copy the message manually.";
   }
 });
 
@@ -81,8 +84,8 @@ copyLinkButton.addEventListener("click", async () => {
 
   try {
     await copyText(senderUrl.value, senderUrl);
-    senderNote.textContent = "Link undangan berhasil disalin.";
+    senderNote.textContent = "✓ Invitation link copied to clipboard.";
   } catch {
-    senderNote.textContent = "Silakan salin link secara manual.";
+    senderNote.textContent = "Please copy the link manually.";
   }
 });
