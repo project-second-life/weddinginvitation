@@ -238,7 +238,6 @@
     bgAudio.loop = true;
     bgAudio.volume = 0;
     bgAudio.preload = "none";
-    bgAudio.crossOrigin = "anonymous";
     bgAudio.src = MUSIC_URLS[0];
 
     bgAudio.addEventListener("error", () => {
