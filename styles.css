@@ -654,8 +654,8 @@ h3 {
     linear-gradient(180deg, #7d0f11 0%, var(--rosewood-mid) 30%, var(--vermillion-deep) 60%, var(--rosewood) 100%);
 }
 
-/* Push all hero children above the bg layer */
-.hero>*:not(.hero__bg) {
+/* Push all hero children above the bg layer, but NOT lanterns (they need position:absolute) */
+.hero > *:not(.hero__bg):not(.lantern) {
   position: relative;
   z-index: 2;
 }
