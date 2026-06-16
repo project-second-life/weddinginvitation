@@ -1223,7 +1223,8 @@ h3 {
   box-shadow: var(--shadow-lg);
   overflow: hidden;
   transition: all 400ms var(--ease-luxury);
-  aspect-ratio: 4 / 5;
+  /* No fixed aspect-ratio — let each photo determine the frame height */
+  min-height: 320px;
 }
 
 .prewed-frame::before {
@@ -1241,12 +1242,16 @@ h3 {
   box-shadow: var(--shadow-lg), var(--shadow-fire);
 }
 
+/* All slides stacked via CSS grid — only .active is visible */
+.prewed-frame {
+  display: grid;
+}
+
 .prewed-frame img {
-  position: absolute;
-  inset: 16px;
-  width: calc(100% - 32px);
-  height: calc(100% - 32px);
-  object-fit: cover;
+  grid-area: 1 / 1;          /* all images occupy the same cell */
+  width: 100%;
+  height: auto;
+  object-fit: contain;       /* full picture — no cropping */
   border-radius: 4px;
   opacity: 0;
   transition: opacity 1200ms ease-in-out;
