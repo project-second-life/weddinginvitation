@@ -708,28 +708,28 @@ h1, h2, h3 {
   transform-origin: top center;
 }
 
-.lantern--1 { left: 4%; width: clamp(50px, 7vw, 90px); }
-.lantern--1 .lantern__string { height: clamp(40px, 7vh, 80px); }
+.lantern--1 { left: 2%; width: clamp(50px, 7vw, 90px); }
+.lantern--1 .lantern__string { height: clamp(25px, 5vh, 50px); }
 .lantern--1 .lantern__img { animation-duration: 3.2s; animation-delay: 0.1s; }
 
-.lantern--2 { left: 20%; width: clamp(40px, 6vw, 75px); }
-.lantern--2 .lantern__string { height: clamp(20px, 4vh, 45px); }
+.lantern--2 { left: 8%; width: clamp(40px, 6vw, 75px); }
+.lantern--2 .lantern__string { height: clamp(15px, 3vh, 30px); }
 .lantern--2 .lantern__img { animation-duration: 3.8s; animation-delay: 0.5s; }
 
-.lantern--3 { left: 36%; width: clamp(45px, 6.5vw, 80px); }
-.lantern--3 .lantern__string { height: clamp(30px, 5.5vh, 65px); }
+.lantern--3 { left: 14%; width: clamp(45px, 6.5vw, 80px); }
+.lantern--3 .lantern__string { height: clamp(20px, 4vh, 40px); }
 .lantern--3 .lantern__img { animation-duration: 3.5s; animation-delay: 0.3s; }
 
-.lantern--4 { right: 36%; width: clamp(45px, 6.5vw, 80px); }
-.lantern--4 .lantern__string { height: clamp(30px, 5.5vh, 65px); }
+.lantern--4 { right: 14%; width: clamp(45px, 6.5vw, 80px); }
+.lantern--4 .lantern__string { height: clamp(20px, 4vh, 40px); }
 .lantern--4 .lantern__img { animation-duration: 3.6s; animation-delay: 0.2s; transform: scaleX(-1); }
 
-.lantern--5 { right: 20%; width: clamp(40px, 6vw, 75px); }
-.lantern--5 .lantern__string { height: clamp(20px, 4vh, 45px); }
+.lantern--5 { right: 8%; width: clamp(40px, 6vw, 75px); }
+.lantern--5 .lantern__string { height: clamp(15px, 3vh, 30px); }
 .lantern--5 .lantern__img { animation-duration: 3.4s; animation-delay: 0.6s; transform: scaleX(-1); }
 
-.lantern--6 { right: 4%; width: clamp(50px, 7vw, 90px); }
-.lantern--6 .lantern__string { height: clamp(40px, 7vh, 80px); }
+.lantern--6 { right: 2%; width: clamp(50px, 7vw, 90px); }
+.lantern--6 .lantern__string { height: clamp(25px, 5vh, 50px); }
 .lantern--6 .lantern__img { animation-duration: 3.9s; animation-delay: 0.4s; transform: scaleX(-1); }
 
 /* ─── Card Decorative Lanterns ─── */
@@ -793,7 +793,7 @@ h1, h2, h3 {
   z-index: 4;
   align-self: center;
   width: min(820px, 100%);
-  margin: 6vh auto 4vh;
+  margin: 2vh auto 4vh;
   text-align: center;
 }
 
