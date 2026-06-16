@@ -10,10 +10,10 @@
   --phoenix-glow:     #ff6b35;       /* bright fire glow */
 
   /* ── Auspicious Red 朱红 ── */
-  --vermillion:       #c23a22;       /* traditional cinnabar red */
-  --vermillion-deep:  #8b1a1a;       /* deep ceremonial red */
-  --vermillion-soft:  #d94f3d;       /* lighter vermillion */
-  --crimson:          #a01a1a;       /* rich crimson */
+  --vermillion:       #d32f2f;       /* traditional cinnabar red */
+  --vermillion-deep:  #8b0000;       /* deep ceremonial red */
+  --vermillion-soft:  #f44336;       /* lighter vermillion */
+  --crimson:          #b71c1c;       /* rich crimson */
 
   /* ── Imperial Gold 金 ── */
   --gold:             #d4a843;       /* core imperial gold */
@@ -21,34 +21,34 @@
   --gold-soft:        #f5dfa0;       /* warm gold glow */
   --gold-pale:        #fcedc4;       /* lightest gold */
 
-  /* ── Rosewood Base 紫檀 ── */
-  --rosewood:         #1a0c0e;       /* deepest rosewood */
-  --rosewood-mid:     #2a1216;       /* mid rosewood */
-  --rosewood-card:    #2e161a;       /* card surface */
-  --rosewood-warm:    #3a1c22;       /* warm hover state */
+  /* ── Majestic Red & Gold Base ── */
+  --rosewood:         #a61c20;       /* majestic royal red base */
+  --rosewood-mid:     #c82328;       /* mid vibrant red */
+  --rosewood-card:    #fdf9f2;       /* elegant warm ivory card background */
+  --rosewood-warm:    #f7ebd0;       /* soft gold hover state */
 
   /* ── Text & Accents ── */
   --ivory:            #fdf3e4;       /* warm ivory text */
   --ivory-muted:      #e0cdb5;       /* softer ivory */
-  --ink:              #f8f0e0;       /* body text */
-  --muted:            #b39a82;       /* subtle text */
+  --ink:              #fbf7eb;       /* body text */
+  --muted:            #e8d3bd;       /* subtle text on red base */
 
   /* ── Functional ── */
-  --glass:            rgba(42, 18, 22, 0.78);
-  --glass-fire:       rgba(232, 93, 58, 0.06);
+  --glass:            rgba(253, 249, 242, 0.88); /* light glassmorphism card */
+  --glass-fire:       rgba(232, 93, 58, 0.08);
 
   /* ── Shadows ── */
-  --shadow-sm:        0 4px 16px rgba(26, 12, 14, 0.5);
-  --shadow-md:        0 16px 48px rgba(26, 12, 14, 0.55);
-  --shadow-lg:        0 32px 80px rgba(26, 12, 14, 0.65);
-  --shadow-gold:      0 0 40px rgba(212, 168, 67, 0.15);
-  --shadow-fire:      0 0 50px rgba(232, 93, 58, 0.12);
+  --shadow-sm:        0 4px 16px rgba(139, 26, 26, 0.15);
+  --shadow-md:        0 16px 48px rgba(139, 26, 26, 0.2);
+  --shadow-lg:        0 32px 80px rgba(139, 26, 26, 0.28);
+  --shadow-gold:      0 0 40px rgba(212, 168, 67, 0.22);
+  --shadow-fire:      0 0 50px rgba(232, 93, 58, 0.18);
 
   /* ── Borders ── */
-  --border-gold:      1px solid rgba(212, 168, 67, 0.3);
-  --border-gold-soft: 1px solid rgba(212, 168, 67, 0.15);
-  --border-gold-strong: 1px solid rgba(212, 168, 67, 0.55);
-  --border-ember:     1px solid rgba(232, 93, 58, 0.2);
+  --border-gold:      1px solid rgba(212, 168, 67, 0.45);
+  --border-gold-soft: 1px solid rgba(212, 168, 67, 0.25);
+  --border-gold-strong: 1px solid rgba(212, 168, 67, 0.7);
+  --border-ember:     1px solid rgba(232, 93, 58, 0.35);
 
   /* ── Timing ── */
   --ease-luxury:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -265,7 +265,7 @@ h1, h2, h3 {
     radial-gradient(circle at 50% 65%, rgba(212, 168, 67, 0.1) 0%, transparent 45%),
     radial-gradient(circle at 20% 80%, rgba(160, 26, 26, 0.35), transparent 55%),
     radial-gradient(circle at 80% 20%, rgba(139, 26, 26, 0.3), transparent 55%),
-    linear-gradient(180deg, var(--rosewood) 0%, #200e12 40%, var(--rosewood) 100%);
+    linear-gradient(180deg, var(--rosewood) 0%, #7d0f11 40%, var(--rosewood) 100%);
   overflow: hidden;
   transition: opacity 1200ms ease, visibility 1200ms ease;
 }
@@ -281,7 +281,7 @@ h1, h2, h3 {
     radial-gradient(circle at var(--door-glow-x, 100%) 65%, rgba(212, 168, 67, 0.1) 0%, transparent 45%),
     radial-gradient(circle at var(--door-corner-x, 20%) 80%, rgba(160, 26, 26, 0.35), transparent 55%),
     radial-gradient(circle at var(--door-corner-x, 80%) 20%, rgba(139, 26, 26, 0.3), transparent 55%),
-    linear-gradient(180deg, var(--rosewood) 0%, #200e12 40%, var(--rosewood) 100%);
+    linear-gradient(180deg, var(--rosewood) 0%, #7d0f11 40%, var(--rosewood) 100%);
   transition: transform 1200ms cubic-bezier(0.77, 0, 0.175, 1);
   overflow: hidden;
 }
@@ -579,7 +579,7 @@ h1, h2, h3 {
     radial-gradient(ellipse at 50% 80%, rgba(160, 26, 26, 0.3) 0%, transparent 50%),
     radial-gradient(circle at 15% 20%, rgba(212, 168, 67, 0.1), transparent 35%),
     radial-gradient(circle at 85% 15%, rgba(212, 168, 67, 0.08), transparent 35%),
-    linear-gradient(180deg, #1c0e10 0%, var(--rosewood-mid) 30%, var(--vermillion-deep) 60%, var(--rosewood) 100%);
+    linear-gradient(180deg, #7d0f11 0%, var(--rosewood-mid) 30%, var(--vermillion-deep) 60%, var(--rosewood) 100%);
 }
 
 /* Push all hero children above the bg layer */
@@ -987,16 +987,22 @@ h1, h2, h3 {
 
 .profile-card h3 {
   margin: 0 0 6px;
-  color: var(--ivory);
+  color: var(--vermillion-deep);
   font-size: clamp(1.4rem, 4vw, 2.2rem);
   font-weight: 500;
 }
 
 .profile-card__role {
   margin: 0;
-  color: var(--muted);
+  color: #a37a1a;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+.profile-card__desc {
+  margin: 12px 0 0;
+  color: #4a2228;
+  font-size: 0.95rem;
 }
 
 .profile-card__line {
@@ -1227,15 +1233,15 @@ h1, h2, h3 {
 
 .event-card h3 {
   margin: 0 0 4px;
-  color: var(--ivory);
+  color: var(--vermillion-deep);
   font-size: clamp(1.3rem, 3.5vw, 1.9rem);
   font-weight: 500;
 }
 
-.event-card p { margin: 0; color: var(--muted); }
+.event-card p { margin: 0; color: #4a2228; }
 
 .event-card__time {
-  color: var(--phoenix-flame) !important;
+  color: var(--rosewood) !important;
   font-weight: 700;
   margin: 10px 0 4px !important;
 }
@@ -1244,10 +1250,10 @@ h1, h2, h3 {
   display: inline-flex;
   margin-top: 18px;
   padding: 6px 14px;
-  border: var(--border-ember);
+  border: 1px solid rgba(166, 28, 32, 0.25);
   border-radius: 999px;
-  color: var(--phoenix-flame);
-  background: rgba(232, 93, 58, 0.06);
+  color: var(--rosewood);
+  background: rgba(166, 28, 32, 0.06);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1379,14 +1385,14 @@ h1, h2, h3 {
 
 .timeline__item strong {
   display: block;
-  color: var(--gold-soft);
+  color: var(--vermillion-deep);
   font-family: "Cormorant Garamond", serif;
   font-size: 1.15rem;
 }
 
 .timeline__item p {
   margin: 4px 0 0;
-  color: var(--muted);
+  color: #4a2228;
   font-size: 0.92rem;
 }
 
@@ -1464,8 +1470,8 @@ h1, h2, h3 {
   width: 100%;
   border: var(--border-gold-soft);
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--ink);
+  background: #ffffff;
+  color: #4a2228;
   padding: 14px 16px;
   outline: none;
   font-weight: 400;
@@ -1473,14 +1479,14 @@ h1, h2, h3 {
 }
 
 .rsvp-form input::placeholder,
-.rsvp-form textarea::placeholder { color: rgba(179, 154, 130, 0.45); }
+.rsvp-form textarea::placeholder { color: rgba(74, 34, 40, 0.55); }
 
 .rsvp-form input:focus,
 .rsvp-form select:focus,
 .rsvp-form textarea:focus {
   border-color: var(--phoenix-ember);
   box-shadow: 0 0 0 3px rgba(232, 93, 58, 0.1), 0 0 20px rgba(232, 93, 58, 0.06);
-  background: rgba(232, 93, 58, 0.03);
+  background: #ffffff;
 }
 
 .rsvp-form select {
@@ -1492,8 +1498,8 @@ h1, h2, h3 {
 }
 
 .rsvp-form select option {
-  background: var(--rosewood-card);
-  color: var(--ink);
+  background: #ffffff;
+  color: #4a2228;
 }
 
 .form-note {
@@ -1525,7 +1531,7 @@ h1, h2, h3 {
 
 .wishes-panel__header h3 {
   margin: 0;
-  color: var(--gold-soft);
+  color: var(--vermillion-deep);
   font-size: clamp(1.1rem, 3.5vw, 1.6rem);
   font-weight: 500;
 }
@@ -1533,9 +1539,9 @@ h1, h2, h3 {
 .clear-wishes {
   min-height: 38px;
   padding: 8px 14px;
-  border: var(--border-gold-soft);
+  border: 1px solid rgba(166, 28, 32, 0.3);
   border-radius: 4px;
-  color: var(--gold);
+  color: var(--rosewood);
   background: transparent;
   cursor: pointer;
   font-weight: 700;
@@ -1544,8 +1550,8 @@ h1, h2, h3 {
 }
 
 .clear-wishes:hover {
-  background: rgba(232, 93, 58, 0.06);
-  border-color: rgba(232, 93, 58, 0.3);
+  background: rgba(166, 28, 32, 0.06);
+  border-color: var(--vermillion);
 }
 
 .wishes-list { display: grid; gap: 12px; }
@@ -1555,11 +1561,11 @@ h1, h2, h3 {
   border-left: 3px solid;
   border-image: linear-gradient(to bottom, var(--phoenix-ember), var(--gold)) 1;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(139, 26, 26, 0.03);
   transition: background 200ms ease;
 }
 
-.wish-card:hover { background: rgba(232, 93, 58, 0.04); }
+.wish-card:hover { background: rgba(139, 26, 26, 0.06); }
 
 .wish-card div {
   display: flex;
@@ -1569,15 +1575,15 @@ h1, h2, h3 {
   margin-bottom: 8px;
 }
 
-.wish-card strong { color: var(--gold-soft); }
+.wish-card strong { color: var(--vermillion-deep); }
 
 .wish-card span,
-.empty-wishes { color: var(--muted); font-size: 0.85rem; }
+.empty-wishes { color: #8a6c55; font-size: 0.85rem; }
 
 .wish-card p,
 .empty-wishes { margin: 0; }
 
-.wish-card p { color: rgba(248, 240, 224, 0.68); }
+.wish-card p { color: #4a2228; }
 
 /* ─── Reveal Animation ─── */
 .reveal-target {
@@ -1659,7 +1665,7 @@ h1, h2, h3 {
 
 .generator-card h1 {
   margin: 0;
-  color: var(--ivory);
+  color: var(--vermillion-deep);
   font-size: clamp(2rem, 7vw, 4.2rem);
   font-weight: 500;
 }
@@ -1667,7 +1673,7 @@ h1, h2, h3 {
 .generator-intro {
   max-width: 620px;
   margin: 16px 0 28px;
-  color: var(--muted);
+  color: #4a2228;
 }
 
 .sender-form,
@@ -1677,7 +1683,7 @@ h1, h2, h3 {
 .sender-result label {
   display: grid;
   gap: 8px;
-  color: var(--gold);
+  color: #a37a1a;
   font-weight: 700;
   font-size: 0.85rem;
 }
@@ -1688,8 +1694,8 @@ h1, h2, h3 {
   width: 100%;
   border: var(--border-gold-soft);
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--ink);
+  background: #ffffff;
+  color: #4a2228;
   padding: 14px 16px;
   outline: none;
   transition: all 300ms ease;
@@ -1702,6 +1708,7 @@ h1, h2, h3 {
 .sender-result textarea:focus {
   border-color: var(--phoenix-ember);
   box-shadow: 0 0 0 3px rgba(232, 93, 58, 0.1);
+  background: #ffffff;
 }
 
 .sender-note {
