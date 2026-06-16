@@ -227,8 +227,8 @@
   // ═══════════════════════════════════════════════════════════════════
   // Free royalty-free Chinese guzheng instrumental from Pixabay CDN
   const MUSIC_URLS = [
+    "assets/song.mp3",
     "https://archive.org/download/TheMoonRepresentsMyHeartTeresaTeng/The%20Moon%20Represents%20My%20Heart%20-%20Teresa%20Teng.mp3",
-    "https://cdn.pixabay.com/audio/2022/10/22/audio_b67d6ef66e.mp3",
   ];
 
   function initBgAudio() {

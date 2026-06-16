@@ -712,9 +712,9 @@ h1, h2, h3 {
 .lantern--1 .lantern__string { height: clamp(25px, 5vh, 50px); }
 .lantern--1 .lantern__img { animation-duration: 3.2s; animation-delay: 0.1s; }
 
-.lantern--2 { left: 8%; width: clamp(40px, 6vw, 75px); }
-.lantern--2 .lantern__string { height: clamp(15px, 3vh, 30px); }
-.lantern--2 .lantern__img { animation-duration: 3.8s; animation-delay: 0.5s; }
+.lantern--2 { right: 2%; width: clamp(50px, 7vw, 90px); }
+.lantern--2 .lantern__string { height: clamp(25px, 5vh, 50px); }
+.lantern--2 .lantern__img { animation-duration: 3.2s; animation-delay: 0.1s; transform: scaleX(-1); }
 
 .lantern--3 { left: 14%; width: clamp(45px, 6.5vw, 80px); }
 .lantern--3 .lantern__string { height: clamp(20px, 4vh, 40px); }
