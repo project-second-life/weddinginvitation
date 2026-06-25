@@ -11,6 +11,11 @@
   const targetDate    = countdown ? new Date(countdown.dataset.date).getTime() : 0;
   const storageKey    = "michael-merlin-wedding-wishes";
 
+  // ─── Google Apps Script endpoint ──────────────────────────────────
+  // After deploying your Apps Script (see SETUP_GUIDE.md), paste the
+  // Web App URL here:  https://script.google.com/macros/s/…/exec
+  const APPS_SCRIPT_URL = "";
+
   const rsvpForm      = document.querySelector(".rsvp-form");
   const wishesList    = document.querySelector("#wishes-list");
   const clearButton   = document.querySelector(".clear-wishes");
@@ -171,7 +176,7 @@
   }
 
   // ═══════════════════════════════════════════════════════════════════
-  // WISHES (localStorage)
+  // WISHES — Google Sheets (persistent) + localStorage (cache/fallback)
   // ═══════════════════════════════════════════════════════════════════
   function getSavedWishes() {
     try {
@@ -181,22 +186,21 @@
     catch { return []; }
   }
 
-  function saveWishes(wishes) {
+  function saveWishesCache(wishes) {
     localStorage.setItem(storageKey, JSON.stringify(wishes));
   }
 
-  function renderWishes() {
+  function renderWishes(wishes) {
     if (!wishesList) return;
+    const list = wishes || getSavedWishes();
 
-    const wishes = getSavedWishes();
-
-    if (wishes.length === 0) {
+    if (list.length === 0) {
       wishesList.innerHTML =
         '<p class="empty-wishes">No wishes yet. Be the first to send one. · 还没有祝福留言。</p>';
       return;
     }
 
-    wishesList.innerHTML = wishes
+    wishesList.innerHTML = list
       .map(
         (wish) => `
         <article class="wish-card">
@@ -208,6 +212,62 @@
         </article>`
       )
       .join("");
+  }
+
+  // Fetch all wishes from Google Sheet and refresh the display
+  async function fetchWishesFromSheet() {
+    if (!APPS_SCRIPT_URL) return; // not configured yet
+    try {
+      const res = await fetch(`${APPS_SCRIPT_URL}?action=get`, { mode: "cors" });
+      if (!res.ok) return;
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        saveWishesCache(data);
+        renderWishes(data);
+      }
+    } catch (_) {
+      // Network error — fall back to localStorage cache silently
+    }
+  }
+
+  // Post a new wish to Google Sheet
+  async function postWishToSheet(wish) {
+    if (!APPS_SCRIPT_URL) return;
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method  : "POST",
+        mode    : "cors",
+        headers : { "Content-Type": "application/json" },
+        body    : JSON.stringify({ action: "add", wish }),
+      });
+    } catch (_) {
+      // POST failed — data already saved to localStorage, so nothing is lost
+    }
+  }
+
+  // Export all wishes as a CSV file the couple can open in Excel / Sheets
+  function exportWishesCSV() {
+    const wishes = getSavedWishes();
+    if (wishes.length === 0) { alert("No wishes to export yet."); return; }
+
+    const header = ["Name", "Attendance", "Date", "Message"];
+    const rows = wishes.map((w) =>
+      [w.name, w.attendance, w.date, w.message]
+        .map((v) => `"${String(v ?? "").replace(/"/g, '""')}"` )
+        .join(",")
+    );
+
+    const csv = [header.join(","), ...rows].join("\r\n");
+    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+    const url  = URL.createObjectURL(blob);
+    const a    = Object.assign(document.createElement("a"), {
+      href: url,
+      download: `wishes-michael-merlin-${new Date().toISOString().slice(0, 10)}.csv`,
+    });
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
   }
 
   // ═══════════════════════════════════════════════════════════════════
@@ -443,7 +503,8 @@
   setGuestName();
   updateCountdown();
   setInterval(updateCountdown, 1000);
-  renderWishes();
+  renderWishes(); // show localStorage cache instantly
+  fetchWishesFromSheet(); // then refresh from Google Sheet in background
   setInterval(createPetal, 1200);
   setupRevealAnimation();
   initParticles();
@@ -451,18 +512,18 @@
 
   // ─── Event Listeners ───
   if (rsvpForm) {
-    rsvpForm.addEventListener("submit", (event) => {
+    rsvpForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      const form     = event.currentTarget;
-      const formData = new FormData(form);
+      const form       = event.currentTarget;
+      const formData   = new FormData(form);
       const name       = formData.get("name").trim();
       const attendance = formData.get("attendance");
       const message    = formData.get("message").trim();
       const note       = form.querySelector(".form-note");
+      const submitBtn  = form.querySelector("button[type=submit]");
 
-      const wishes = getSavedWishes();
-      wishes.unshift({
+      const wish = {
         name,
         attendance,
         message,
@@ -471,20 +532,41 @@
           month: "short",
           year: "numeric",
         }),
-      });
+      };
 
-      saveWishes(wishes);
-      renderWishes();
+      // 1. Save to localStorage immediately (instant, offline-safe)
+      const cached = getSavedWishes();
+      cached.unshift(wish);
+      saveWishesCache(cached);
+      renderWishes(cached);
+
+      // 2. Show saving indicator
+      submitBtn.disabled = true;
+      note.textContent = "Saving…";
+
+      // 3. Persist to Google Sheet (fire-and-forget)
+      await postWishToSheet(wish);
+
+      submitBtn.disabled = false;
       note.textContent = `Thank you, ${name}. Your RSVP and wishes have been saved. · 谢谢，您的回复和祝福已保存。`;
       form.reset();
+
+      // 4. Re-fetch from sheet so all guests' entries are shown
+      fetchWishesFromSheet();
     });
   }
 
   if (clearButton) {
     clearButton.addEventListener("click", () => {
       localStorage.removeItem(storageKey);
-      renderWishes();
+      renderWishes([]);
     });
+  }
+
+  // Export CSV button (added in HTML as .export-wishes)
+  const exportButton = document.querySelector(".export-wishes");
+  if (exportButton) {
+    exportButton.addEventListener("click", exportWishesCSV);
   }
 
   if (openBtn && gate) {

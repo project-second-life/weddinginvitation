@@ -1714,6 +1714,13 @@ h3 {
   font-weight: 500;
 }
 
+.wishes-panel__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.export-wishes,
 .clear-wishes {
   min-height: 38px;
   padding: 8px 14px;
@@ -1727,6 +1734,7 @@ h3 {
   transition: all 200ms ease;
 }
 
+.export-wishes:hover,
 .clear-wishes:hover {
   background: rgba(166, 28, 32, 0.06);
   border-color: var(--vermillion);
