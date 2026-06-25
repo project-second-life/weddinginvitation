@@ -14,7 +14,7 @@
   // ─── Google Apps Script endpoint ──────────────────────────────────
   // After deploying your Apps Script (see SETUP_GUIDE.md), paste the
   // Web App URL here:  https://script.google.com/macros/s/…/exec
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz_t21rAO9E2DClNEj4WsoSQdXhMmXuFwGJFQu5EobBSQec1tEwz6kNDbnPR1CuSbHWsg/exec";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby-ocHWbcZ9xK_pwpVo6Uy-tLSMOzy36DPNKjJbiYVNbkLkq94QnTatmq4YqCG-Grpgmg/exec";
 
   const rsvpForm = document.querySelector(".rsvp-form");
   const wishesList = document.querySelector("#wishes-list");
@@ -215,9 +215,12 @@
 
   // Fetch all wishes from Google Sheet and refresh the display
   async function fetchWishesFromSheet() {
-    if (!APPS_SCRIPT_URL) return; // not configured yet
+    if (!APPS_SCRIPT_URL) return;
     try {
-      const res = await fetch(`${APPS_SCRIPT_URL}?action=get`, { mode: "cors" });
+      const res = await fetch(`${APPS_SCRIPT_URL}?action=get`, {
+        mode: "cors",
+        redirect: "follow",
+      });
       if (!res.ok) return;
       const data = await res.json();
       if (Array.isArray(data)) {
@@ -230,14 +233,15 @@
   }
 
   // Post a new wish to Google Sheet
+  // Uses no-cors + text/plain to avoid CORS preflight (Apps Script limitation)
   async function postWishToSheet(wish) {
     if (!APPS_SCRIPT_URL) return;
     try {
       await fetch(APPS_SCRIPT_URL, {
         method: "POST",
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
+        mode: "no-cors",       // avoids preflight — response will be opaque
         body: JSON.stringify({ action: "add", wish }),
+        // No Content-Type header — keeps request "simple" and preflight-free
       });
     } catch (_) {
       // POST failed — data already saved to localStorage, so nothing is lost
