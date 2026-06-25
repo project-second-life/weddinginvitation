@@ -420,49 +420,11 @@
     const container = document.getElementById("prewed-slideshow");
     if (!container) return;
 
-    const images = [
-      "assets/Real/20230718_144029.jpg",
-      "assets/Real/20230903_132024.jpg",
-      "assets/Real/20230903_134351.jpg",
-      "assets/Real/IMG20240214154047.jpg",
-      "assets/Real/IMG20240218111950.jpg",
-      "assets/Real/IMG20240218113136.jpg",
-      "assets/Real/IMG20240413122836.jpg",
-      "assets/Real/IMG20240521161329.jpg",
-      "assets/Real/IMG20240521161440.jpg",
-      "assets/Real/IMG20240523163421.jpg",
-      "assets/Real/IMG20241221125226.jpg",
-      "assets/Real/IMG20241223145546.jpg",
-      "assets/Real/IMG20250413145116.jpg",
-      "assets/Real/IMG20250502213650.jpg",
-      "assets/Real/IMG20250622195328.jpg",
-      "assets/Real/IMG20250622195444.jpg",
-      "assets/Real/WhatsApp Image 2026-06-16 at 16.34.52.jpeg",
-      "assets/Real/WhatsApp Image 2026-06-16 at 16.34.56 (1).jpeg",
-      "assets/Real/WhatsApp Image 2026-06-16 at 16.34.56.jpeg",
-      "assets/Real/WhatsApp Image 2026-06-16 at 16.34.57.jpeg",
-      "assets/Real/WhatsApp Image 2026-06-16 at 16.34.58 (1).jpeg",
-      "assets/Real/WhatsApp Image 2026-06-16 at 16.34.58.jpeg",
-      "assets/Real/WhatsApp Image 2026-06-16 at 16.34.59.jpeg",
-      "assets/Real/WhatsApp Image 2026-06-16 at 16.35.01.jpeg"
-    ];
+    // Use all <img> elements already declared in the HTML
+    const imgElements = Array.from(container.querySelectorAll("img"));
+    if (imgElements.length === 0) return;
 
     let currentIndex = 0;
-    const imgElements = [];
-
-    const firstImg = container.querySelector("img");
-    if (firstImg) {
-      imgElements.push(firstImg);
-    }
-
-    images.slice(1).forEach((src) => {
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = "Romantic prewedding portrait of Michael Vinci and Merlin";
-      img.loading = "lazy";
-      container.appendChild(img);
-      imgElements.push(img);
-    });
 
     setInterval(() => {
       imgElements[currentIndex].classList.remove("active");

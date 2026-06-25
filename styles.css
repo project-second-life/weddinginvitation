@@ -1223,8 +1223,7 @@ h3 {
   box-shadow: var(--shadow-lg);
   overflow: hidden;
   transition: all 400ms var(--ease-luxury);
-  /* No fixed aspect-ratio — let each photo determine the frame height */
-  min-height: 320px;
+  aspect-ratio: 3 / 4;   /* portrait frame — matches most prewed shots */
 }
 
 .prewed-frame::before {
@@ -1250,8 +1249,9 @@ h3 {
 .prewed-frame img {
   grid-area: 1 / 1;          /* all images occupy the same cell */
   width: 100%;
-  height: auto;
-  object-fit: contain;       /* full picture — no cropping */
+  height: 100%;
+  object-fit: cover;         /* fill the frame — no letterboxing */
+  object-position: center top; /* favour faces at the top */
   border-radius: 4px;
   opacity: 0;
   transition: opacity 1200ms ease-in-out;
