@@ -213,6 +213,17 @@
       .join("");
   }
 
+  // Normalise a date value from Google Sheets (ISO string or serial number)
+  // into the same "dd Mon yyyy" format used when saving locally
+  function formatSheetDate(raw) {
+    if (!raw) return "";
+    // Already formatted (e.g. "24 Jun 2026") — leave as-is
+    if (typeof raw === "string" && !/^\d/.test(raw.slice(0, 4).replace(/-/g, ""))) return raw;
+    const d = new Date(raw);
+    if (isNaN(d)) return String(raw);
+    return d.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+  }
+
   // Fetch all wishes from Google Sheet and refresh the display
   async function fetchWishesFromSheet() {
     if (!APPS_SCRIPT_URL) return;
@@ -224,8 +235,10 @@
       if (!res.ok) return;
       const data = await res.json();
       if (Array.isArray(data)) {
-        saveWishesCache(data);
-        renderWishes(data);
+        // Normalise date format coming back from the sheet
+        const normalised = data.map((w) => ({ ...w, date: formatSheetDate(w.date) }));
+        saveWishesCache(normalised);
+        renderWishes(normalised);
       }
     } catch (_) {
       // Network error — fall back to localStorage cache silently
