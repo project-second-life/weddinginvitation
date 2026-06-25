@@ -7,24 +7,23 @@
   "use strict";
 
   // ─── DOM References ───
-  const countdown     = document.querySelector(".countdown");
-  const targetDate    = countdown ? new Date(countdown.dataset.date).getTime() : 0;
-  const storageKey    = "michael-merlin-wedding-wishes";
+  const countdown = document.querySelector(".countdown");
+  const targetDate = countdown ? new Date(countdown.dataset.date).getTime() : 0;
+  const storageKey = "michael-merlin-wedding-wishes";
 
   // ─── Google Apps Script endpoint ──────────────────────────────────
   // After deploying your Apps Script (see SETUP_GUIDE.md), paste the
   // Web App URL here:  https://script.google.com/macros/s/…/exec
-  const APPS_SCRIPT_URL = "";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz_t21rAO9E2DClNEj4WsoSQdXhMmXuFwGJFQu5EobBSQec1tEwz6kNDbnPR1CuSbHWsg/exec";
 
-  const rsvpForm      = document.querySelector(".rsvp-form");
-  const wishesList    = document.querySelector("#wishes-list");
-  const clearButton   = document.querySelector(".clear-wishes");
-  const guestName     = document.querySelector("#guest-name");
+  const rsvpForm = document.querySelector(".rsvp-form");
+  const wishesList = document.querySelector("#wishes-list");
+  const guestName = document.querySelector("#guest-name");
   const coverGuestName = document.querySelector("#cover-guest-name");
-  const musicToggle   = document.querySelector(".music-fab");
-  const romanceLayer  = document.querySelector(".floating-romance");
-  const gate          = document.querySelector(".gate");
-  const openBtn       = document.querySelector(".open-invitation");
+  const musicToggle = document.querySelector(".music-fab");
+  const romanceLayer = document.querySelector(".floating-romance");
+  const gate = document.querySelector(".gate");
+  const openBtn = document.querySelector(".open-invitation");
   const particleCanvas = document.querySelector("#golden-particles");
 
   // Audio state — declared once here, used by both HTML5 Audio and synth fallback
@@ -90,10 +89,10 @@
       draw() {
         const heightRatio = Math.max(0, Math.min(1, this.y / height)); // 1 at bottom, 0 at top
         const currentOpacity = this.opacity * heightRatio * (0.65 + 0.35 * Math.sin(this.pulse));
-        
+
         ctx.globalAlpha = currentOpacity;
         ctx.beginPath();
-        
+
         const radius = this.size * (0.4 + 0.6 * heightRatio);
         ctx.arc(this.x, this.y, radius * 3.5, 0, Math.PI * 2);
 
@@ -155,8 +154,8 @@
     if (!targetDate) return;
 
     const distance = Math.max(targetDate - Date.now(), 0);
-    const days    = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours   = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((distance / (1000 * 60)) % 60);
     const seconds = Math.floor((distance / 1000) % 60);
 
@@ -235,40 +234,17 @@
     if (!APPS_SCRIPT_URL) return;
     try {
       await fetch(APPS_SCRIPT_URL, {
-        method  : "POST",
-        mode    : "cors",
-        headers : { "Content-Type": "application/json" },
-        body    : JSON.stringify({ action: "add", wish }),
+        method: "POST",
+        mode: "cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "add", wish }),
       });
     } catch (_) {
       // POST failed — data already saved to localStorage, so nothing is lost
     }
   }
 
-  // Export all wishes as a CSV file the couple can open in Excel / Sheets
-  function exportWishesCSV() {
-    const wishes = getSavedWishes();
-    if (wishes.length === 0) { alert("No wishes to export yet."); return; }
 
-    const header = ["Name", "Attendance", "Date", "Message"];
-    const rows = wishes.map((w) =>
-      [w.name, w.attendance, w.date, w.message]
-        .map((v) => `"${String(v ?? "").replace(/"/g, '""')}"` )
-        .join(",")
-    );
-
-    const csv = [header.join(","), ...rows].join("\r\n");
-    const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
-    const url  = URL.createObjectURL(blob);
-    const a    = Object.assign(document.createElement("a"), {
-      href: url,
-      download: `wishes-michael-merlin-${new Date().toISOString().slice(0, 10)}.csv`,
-    });
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
-  }
 
   // ═══════════════════════════════════════════════════════════════════
   // GUEST NAME FROM URL
@@ -368,7 +344,7 @@
 
   // ─── Synth Fallback — Chinese Pentatonic ───
   function playNote(freq, startTime, duration, type = "sine", volume = 0.06) {
-    const osc  = audioContext.createOscillator();
+    const osc = audioContext.createOscillator();
     const gain = audioContext.createGain();
     osc.type = type;
     osc.frequency.setValueAtTime(freq, startTime);
@@ -384,14 +360,14 @@
   function scheduleMelody() {
     if (!audioContext || !isPlaying) return;
     const melody = [
-      { freq: 523.25, dur: 0.5  },
+      { freq: 523.25, dur: 0.5 },
       { freq: 587.33, dur: 0.35 },
-      { freq: 659.25, dur: 0.5  },
-      { freq: 783.99, dur: 0.6  },
+      { freq: 659.25, dur: 0.5 },
+      { freq: 783.99, dur: 0.6 },
       { freq: 659.25, dur: 0.35 },
-      { freq: 587.33, dur: 0.5  },
-      { freq: 523.25, dur: 0.6  },
-      { freq: 392.00, dur: 0.7  },
+      { freq: 587.33, dur: 0.5 },
+      { freq: 523.25, dur: 0.6 },
+      { freq: 392.00, dur: 0.7 },
     ];
     const now = audioContext.currentTime + 0.05;
     let offset = 0;
@@ -515,13 +491,13 @@
     rsvpForm.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      const form       = event.currentTarget;
-      const formData   = new FormData(form);
-      const name       = formData.get("name").trim();
+      const form = event.currentTarget;
+      const formData = new FormData(form);
+      const name = formData.get("name").trim();
       const attendance = formData.get("attendance");
-      const message    = formData.get("message").trim();
-      const note       = form.querySelector(".form-note");
-      const submitBtn  = form.querySelector("button[type=submit]");
+      const message = formData.get("message").trim();
+      const note = form.querySelector(".form-note");
+      const submitBtn = form.querySelector("button[type=submit]");
 
       const wish = {
         name,
@@ -554,19 +530,6 @@
       // 4. Re-fetch from sheet so all guests' entries are shown
       fetchWishesFromSheet();
     });
-  }
-
-  if (clearButton) {
-    clearButton.addEventListener("click", () => {
-      localStorage.removeItem(storageKey);
-      renderWishes([]);
-    });
-  }
-
-  // Export CSV button (added in HTML as .export-wishes)
-  const exportButton = document.querySelector(".export-wishes");
-  if (exportButton) {
-    exportButton.addEventListener("click", exportWishesCSV);
   }
 
   if (openBtn && gate) {

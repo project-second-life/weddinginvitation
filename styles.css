@@ -1714,31 +1714,6 @@ h3 {
   font-weight: 500;
 }
 
-.wishes-panel__actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.export-wishes,
-.clear-wishes {
-  min-height: 38px;
-  padding: 8px 14px;
-  border: 1px solid rgba(166, 28, 32, 0.3);
-  border-radius: 4px;
-  color: var(--rosewood);
-  background: transparent;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 0.82rem;
-  transition: all 200ms ease;
-}
-
-.export-wishes:hover,
-.clear-wishes:hover {
-  background: rgba(166, 28, 32, 0.06);
-  border-color: var(--vermillion);
-}
 
 .wishes-list {
   display: grid;
